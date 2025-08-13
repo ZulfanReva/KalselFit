@@ -130,8 +130,17 @@ class GymResource extends Resource
                 SelectFilter::make('city_id')
                     ->label('City')
                     ->relationship('city', 'name'),
+
+                SelectFilter::make('is_popular')
+                    ->label('Popular')
+                    ->options([
+                        true => 'Popular',
+                        false => 'Not Popular',
+                    ])
+                    ->attribute('is_popular')
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

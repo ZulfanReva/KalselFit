@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FacilityResource\Pages;
-use App\Filament\Resources\FacilityResource\RelationManagers;
-use App\Models\Facility;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Facility;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\FacilityResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\FacilityResource\RelationManagers;
 
 class FacilityResource extends Resource
 {
@@ -69,6 +70,13 @@ class FacilityResource extends Resource
             ])
             ->filters([
                 //
+                SelectFilter::make('is_open')
+                    ->label('Status')
+                    ->options([
+                        true => 'Available',
+                        false => 'Maintenance',
+                    ])
+                    ->attribute('is_open')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

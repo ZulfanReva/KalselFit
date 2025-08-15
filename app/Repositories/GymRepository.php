@@ -7,6 +7,8 @@ use App\Repositories\Contract\GymRepositoryInterface;
 
 class GymRepository implements GymRepositoryInterface
 {
+    // Repository untuk Gym. Menyediakan query-ready methods yang digunakan service/controller.
+    // Analogi: tempat-tempat yang sering dipakai (popular) diambil lewat method khusus.
     public function getPopularGyms($limit = 4)
     {
         return Gym::where('is_popular', true)->take($limit)->get();
@@ -25,6 +27,7 @@ class GymRepository implements GymRepositoryInterface
     public function getPrice($gymId)
     {
         $gym = $this->find($gymId);
-        return $gym ? $gym->price : 0;
+    // Jika gym tidak ketemu, kembalikan 0 sebagai fallback harga.
+    return $gym ? $gym->price : 0;
     }
 }

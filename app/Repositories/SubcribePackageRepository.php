@@ -7,6 +7,8 @@ use App\Repositories\Contract\SubscribePackageRepositoryInterface;
 
 class SubscribePackageRepository implements SubscribePackageRepositoryInterface
 {
+    // Repository untuk paket langganan (SubscribePackage).
+    // Memberikan akses read-only ke paket dan harga.
     public function getAllSubscribePackages()
     {
         return SubscribePackage::latest()->get();
@@ -20,6 +22,7 @@ class SubscribePackageRepository implements SubscribePackageRepositoryInterface
     public function getPrice($subscribePackageId)
     {
         $subscribePackage = $this->find($subscribePackageId);
-        return $subscribePackage ? $subscribePackage->price : 0;
+    // Fallback harga 0 bila paket tidak ditemukan.
+    return $subscribePackage ? $subscribePackage->price : 0;
     }
 }

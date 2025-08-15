@@ -10,8 +10,9 @@ class BookingRepository implements BookingRepositoryInterface
 {
     public function createBooking(array $data)
     {
-        // return SubscribeTransaction::create($data);
-        // Menggunakan endpoint api dari projek lain
+    // Pada varian API ini, penyimpanan booking mungkin dilakukan via HTTP ke service lain.
+    // Jadi createBooking di sini akan memanggil API eksternal. Di course mereka
+    // mengomentari implementasi langsung karena contoh memakai service lain.
     }
 
     public function findByTrxIdAndPhoneNumber($bookingTrxId, $phoneNumber)

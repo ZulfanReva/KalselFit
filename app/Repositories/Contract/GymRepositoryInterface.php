@@ -4,6 +4,7 @@ namespace App\Repositories\Contract;
 
 interface GymRepositoryInterface
 {
+    // Kontrak untuk repository Gym. Menyediakan method yang dibutuhkan layer service.
     public function getPopularGyms ($limit);
 
     public function getAllNewGyms();

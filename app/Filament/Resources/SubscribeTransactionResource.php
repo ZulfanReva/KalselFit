@@ -176,6 +176,14 @@ class SubscribeTransactionResource extends Resource
                 SelectFilter::make('subscribe_package_id')
                     ->label('Subscribe Package')
                     ->relationship('subscribePackage', 'name'),
+
+                SelectFilter::make('is_paid')
+                    ->label('Status Transaction')
+                    ->options([
+                        true => 'Success',
+                        false => 'Pending',
+                    ])
+                    ->attribute('is_paid')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

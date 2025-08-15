@@ -2,7 +2,15 @@
 
 namespace App\Providers;
 
+use App\Repositories\BookingRepository;
+use App\Repositories\GymRepository;
+use App\Repositories\CityRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Contract\CityRepositoryInterface;
+use App\Repositories\Contract\GymRepositoryInterface;
+use App\Repositories\Contracts\BookingRepositoryInterface;
+use App\Repositories\Contract\SubscribePackageRepositoryInterface;
+use App\Repositories\SubscribePackageRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+        $this->app->singleton(CityRepositoryInterface::class, CityRepository::class);
+        $this->app->singleton(GymRepositoryInterface::class, GymRepository::class);
+        $this->app->singleton(BookingRepositoryInterface::class, BookingRepository::class);
+        $this->app->singleton(SubscribePackageRepositoryInterface::class, SubscribePackageRepository::class);
     }
 
     /**

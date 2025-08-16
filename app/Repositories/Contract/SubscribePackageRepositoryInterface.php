@@ -9,6 +9,6 @@ interface SubscribePackageRepositoryInterface
 
     public function find($id);
 
-    public function getPrice($subcribePackageId);
+    public function getPrice($subscribePackageId);
 
 }

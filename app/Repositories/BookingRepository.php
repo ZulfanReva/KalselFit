@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\SubscribeTransaction;
-use App\Repositories\Contracts\BookingRepositoryInterface;
+use App\Repositories\Contract\BookingRepositoryInterface;
 use Illuminate\Support\Facades\Session;
 
 class BookingRepository implements BookingRepositoryInterface

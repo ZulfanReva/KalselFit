@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/pricing', [FrontController::class, 'pricing'])->name('front.pricing');

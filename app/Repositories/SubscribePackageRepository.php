@@ -22,7 +22,7 @@ class SubscribePackageRepository implements SubscribePackageRepositoryInterface
     public function getPrice($subscribePackageId)
     {
         $subscribePackage = $this->find($subscribePackageId);
-    // Fallback harga 0 bila paket tidak ditemukan.
-    return $subscribePackage ? $subscribePackage->price : 0;
+        // Fallback harga 0 bila paket tidak ditemukan.
+        return $subscribePackage ? $subscribePackage->price : 0;
     }
 }

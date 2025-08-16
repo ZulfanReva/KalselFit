@@ -8,7 +8,7 @@ use App\Repositories\CityRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contract\CityRepositoryInterface;
 use App\Repositories\Contract\GymRepositoryInterface;
-use App\Repositories\Contracts\BookingRepositoryInterface;
+use App\Repositories\Contract\BookingRepositoryInterface;
 use App\Repositories\Contract\SubscribePackageRepositoryInterface;
 use App\Repositories\SubscribePackageRepository;
 

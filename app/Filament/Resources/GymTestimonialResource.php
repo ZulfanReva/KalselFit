@@ -72,7 +72,7 @@ class GymTestimonialResource extends Resource
                     ->label('Gym Name'),
 
                 Tables\Columns\ImageColumn::make('gym.thumbnail')
-                ->label('Gym Thumbnail'),
+                    ->label('Gym Thumbnail'),
             ])
             ->filters([
                 //

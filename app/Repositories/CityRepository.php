@@ -11,6 +11,6 @@ class CityRepository implements CityRepositoryInterface
     // Filosofi: jangan letakkan query Eloquent di controller. Taruh di repository agar mudah diuji.
     public function getAllCities()
     {
-        return City::latest()->get();
+        return City::orderBy('name', 'asc')->get();
     }
 }

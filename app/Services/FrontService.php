@@ -19,11 +19,11 @@ class FrontService
         GymRepositoryInterface $gymRepository,
         SubscribePackageRepositoryInterface $subscribePackageRepository
     ) {
-    // Service ini menerima repository lewat constructor (DI).
-    // Filosofi: service bertugas mengorkestrasi beberapa repository untuk
-    // memenuhi kebutuhan use-case (business logic tingkat menengah).
-    // Analogi: controller = "pelayan restoran", service = "koki" yang
-    // meracik beberapa bahan (repository data) menjadi satu hidangan (response).
+        // Service ini menerima repository lewat constructor (DI).
+        // Filosofi: service bertugas mengorkestrasi beberapa repository untuk
+        // memenuhi kebutuhan use-case (business logic tingkat menengah).
+        // Analogi: controller = "pelayan restoran", service = "koki" yang
+        // meracik beberapa bahan (repository data) menjadi satu hidangan (response).
         $this->gymRepository = $gymRepository;
         $this->cityRepository = $cityRepository;
         $this->subscribePackageRepository = $subscribePackageRepository;
@@ -43,7 +43,7 @@ class FrontService
         $subscribePackages = $this->subscribePackageRepository->getAllSubscribePackages();
         // The rest of the function is cut off in the image,
         // but it would typically return the data like this:
-    // Kembalikan array yang sudah terstruktur untuk controller/serialisasi.
-    return compact('subscribePackages');
+        // Kembalikan array yang sudah terstruktur untuk controller/serialisasi.
+        return compact('subscribePackages');
     }
 }

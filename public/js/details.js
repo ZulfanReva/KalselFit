@@ -8,12 +8,12 @@ buttons.forEach(button => {
 
         // Remove active state from all buttons
         buttons.forEach(btn => {
-            btn.classList.remove('ring-[3px]', 'ring-[#835DFE]');
+            btn.classList.remove('ring-[3px]', 'ring-[#1BB1F8]');
             btn.classList.add('opacity-50');
         });
 
         // Add active state to the clicked button
         this.classList.remove('opacity-50');
-        this.classList.add('ring-[3px]', 'ring-[#835DFE]');
+        this.classList.add('ring-[3px]', 'ring-[#1BB1F8]');
     });
 });

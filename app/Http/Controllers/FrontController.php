@@ -27,8 +27,8 @@ class FrontController extends Controller
     public function pricing()
     {
         $data = $this->frontService->getSubscriptionsData();
-        dd($data);
-        // return view('front.pricing', $data);
+        // dd($data);
+        return view('front.pricing', $data);
     }
 
     public function details(Gym $gym)

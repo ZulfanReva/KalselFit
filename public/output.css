@@ -1541,9 +1541,15 @@ body {
 
 /* Primary approach: draw the ring with a pseudo-element on the element itself
    This will follow the element's own border-radius via `border-radius: inherit`. */
-.focus\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):focus::after,
-.focus\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):focus-visible::after,
-.hover\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):hover::after {
+.focus\:ring-custom-blue[class*="rounded"]:not(
+        :has(> *[class*="rounded"])
+    ):focus::after,
+.focus\:ring-custom-blue[class*="rounded"]:not(
+        :has(> *[class*="rounded"])
+    ):focus-visible::after,
+.hover\:ring-custom-blue[class*="rounded"]:not(
+        :has(> *[class*="rounded"])
+    ):hover::after {
     content: "";
     position: absolute;
     /* expand slightly outside the element so the ring is visible */
@@ -1554,7 +1560,7 @@ body {
     border-radius: inherit;
     pointer-events: none;
     z-index: 1;
-    box-shadow: 0 0 0 2px #1BB1F8;
+    box-shadow: 0 0 0 2px #1bb1f8;
     transition: box-shadow 150ms ease, opacity 150ms ease;
     opacity: 1;
 }
@@ -1580,11 +1586,19 @@ body {
     border-radius: inherit; /* inherit child's own radius */
     pointer-events: none;
     z-index: 1;
-    box-shadow: 0 0 0 2px #1BB1F8;
+    box-shadow: 0 0 0 2px #1bb1f8;
     transition: box-shadow 150ms ease, opacity 150ms ease;
     opacity: 1;
 }
 
 .hover\:border-custom-blue:hover {
-    border-color: #1BB1F8 !important;
+    border-color: #1bb1f8 !important;
+}
+
+/* Card Subcribe Package for id 2 or Super Package */
+.subscribe-card-super {
+    width: 400px; /* Lebih lebar dari 356px default */
+    transform: scale(1.1); /* Perbesar secara proporsional 10% */
+    z-index: 10; /* Agar kartu ini berada di atas yang lain jika ada overlap */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Tambah shadow untuk efek menonjol */
 }

@@ -11,7 +11,7 @@ class SubscribePackageRepository implements SubscribePackageRepositoryInterface
     // Memberikan akses read-only ke paket dan harga.
     public function getAllSubscribePackages()
     {
-        return SubscribePackage::latest()->get();
+        return SubscribePackage::orderBy('id', 'asc')->get();
     }
 
     public function find($id)

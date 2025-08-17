@@ -1521,3 +1521,70 @@ body {
     --tw-border-opacity: 1;
     border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+
+/* --------- Style Custom by Zulfan Reva --------- */
+
+/* Tambahan untuk efek focus dan hover dengan warna kustom #1BB1F8 di lokasi.blade.php*/
+.focus\:ring-custom-blue,
+.hover\:ring-custom-blue {
+    /* Make sure pseudo-elements are positioned relative to this element */
+    position: relative;
+    z-index: 0; /* keep stacking predictable */
+}
+
+/* Remove default outline when using custom ring */
+.focus\:ring-custom-blue:focus,
+.focus\:ring-custom-blue:focus-visible,
+.hover\:ring-custom-blue:hover {
+    outline: none;
+}
+
+/* Primary approach: draw the ring with a pseudo-element on the element itself
+   This will follow the element's own border-radius via `border-radius: inherit`. */
+.focus\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):focus::after,
+.focus\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):focus-visible::after,
+.hover\:ring-custom-blue[class*="rounded"]:not(:has(> *[class*="rounded"])):hover::after {
+    content: "";
+    position: absolute;
+    /* expand slightly outside the element so the ring is visible */
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 0 2px #1BB1F8;
+    transition: box-shadow 150ms ease, opacity 150ms ease;
+    opacity: 1;
+}
+
+/* Secondary approach: if the element contains a rounded child (common pattern:
+   <a>.. <div class="rounded-...">..</div> ..</a>), draw the ring on the direct child
+   so the visible rounded shape is respected without changing markup.
+   This does not affect layout because `position: relative` is used. */
+.focus\:ring-custom-blue:focus > *,
+.hover\:ring-custom-blue:hover > * {
+    position: relative; /* establish containing block for child's pseudo-element */
+    z-index: 0;
+}
+
+.focus\:ring-custom-blue:focus > *::after,
+.hover\:ring-custom-blue:hover > *::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: inherit; /* inherit child's own radius */
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 0 2px #1BB1F8;
+    transition: box-shadow 150ms ease, opacity 150ms ease;
+    opacity: 1;
+}
+
+.hover\:border-custom-blue:hover {
+    border-color: #1BB1F8 !important;
+}

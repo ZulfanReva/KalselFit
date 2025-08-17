@@ -34,8 +34,9 @@ class FrontService
         $cities = $this->cityRepository->getAllCities();
         $popularGyms = $this->gymRepository->getPopularGyms(4);
         $newGyms = $this->gymRepository->getAllNewGyms();
+        $allPopularGyms = $this->gymRepository->getAllPopularGyms();
 
-        return compact('cities', 'popularGyms', 'newGyms');
+        return compact('cities', 'popularGyms', 'newGyms', 'allPopularGyms');
     }
 
     public function getSubscriptionsData()

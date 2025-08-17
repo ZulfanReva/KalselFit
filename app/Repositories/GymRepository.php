@@ -19,6 +19,11 @@ class GymRepository implements GymRepositoryInterface
         return Gym::latest()->get();
     }
 
+    public function getAllPopularGyms()
+    {
+        return Gym::where('is_popular', true)->get();
+    }
+
     public function find($id)
     {
         return Gym::find($id);
@@ -27,7 +32,7 @@ class GymRepository implements GymRepositoryInterface
     public function getPrice($gymId)
     {
         $gym = $this->find($gymId);
-    // Jika gym tidak ketemu, kembalikan 0 sebagai fallback harga.
-    return $gym ? $gym->price : 0;
+        // Jika gym tidak ketemu, kembalikan 0 sebagai fallback harga.
+        return $gym ? $gym->price : 0;
     }
 }

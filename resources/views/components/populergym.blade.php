@@ -11,8 +11,8 @@
       </div>
 
       <div class="grid grid-cols-3 gap-6">
-          @forelse ($allPopularGyms as $itemPopulerGym)
-              <a href="details.html"
+          @forelse ($allPopularGyms->take(6) as $itemPopulerGym)
+              <a href="{{ route('front.details', $itemPopulerGym->slug) }}"
                   class="card transition-all duration-200 focus:ring-custom-blue hover:ring-custom-blue">
                   <div
                       class="flex flex-col rounded-3xl p-8 gap-6 bg-white border-2 border-transparent hover:border-custom-blue">

@@ -6,7 +6,8 @@ use App\Http\Controllers\FrontController;
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/pricing', [FrontController::class, 'pricing'])->name('front.pricing');
 
-Route::get('/browse/{city:slug}', [FrontController::class, 'city'])->name('front.city');
+Route::get('/city/{city:slug}', [FrontController::class, 'city'])->name('front.city');
+Route::get('/city/{city:slug}/all', [FrontController::class, 'cityAll'])->name('front.city.all');
 
 Route::get('/details/{gym:slug}', [FrontController::class, 'details'])->name('front.details');
 

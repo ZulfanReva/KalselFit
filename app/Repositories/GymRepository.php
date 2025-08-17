@@ -9,19 +9,14 @@ class GymRepository implements GymRepositoryInterface
 {
     // Repository untuk Gym. Menyediakan query-ready methods yang digunakan service/controller.
     // Analogi: tempat-tempat yang sering dipakai (popular) diambil lewat method khusus.
-    public function getPopularGyms($limit = 4)
+    public function getPopularGyms()
     {
-        return Gym::where('is_popular', true)->take($limit)->get();
+        return Gym::where('is_popular', true)->orderBy('name', 'asc')->get();
     }
 
-    public function getAllNewGyms()
+    public function GetGyms()
     {
-        return Gym::latest()->get();
-    }
-
-    public function getAllPopularGyms()
-    {
-        return Gym::where('is_popular', true)->get();
+        return Gym::orderBy('name', 'asc')->get();
     }
 
     public function find($id)

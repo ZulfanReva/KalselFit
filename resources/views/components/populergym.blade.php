@@ -11,7 +11,7 @@
       </div>
 
       <div class="grid grid-cols-3 gap-6">
-          @forelse ($allPopularGyms->take(6) as $itemPopulerGym)
+          @forelse ($popularGyms->take(6) as $itemPopulerGym)
               <a href="{{ route('front.details', $itemPopulerGym->slug) }}"
                   class="card transition-all duration-200 focus:ring-custom-blue hover:ring-custom-blue">
                   <div
@@ -32,17 +32,19 @@
                       </div>
                       <div class="flex items-center justify-between">
                           <p class="font-['ClashDisplay-SemiBold']">Fasilitas</p>
-                          {{-- <button class="font-semibold text-xs leading-14 tracking-05 text-fitcamp-royal-blue">View
-                              all</button> --}}
+                          <button class="font-semibold text-xs leading-14 tracking-05 text-[#1BB1F8]">View
+                              all</button>
                       </div>
                       <div class="grid grid-cols-3 justify-between gap-3">
-                          @forelse ($itemPopulerGym->gymFacilities->take(6) as $itemFacility)
+                          @forelse ($itemPopulerGym->gymFacilities->take(3) as $itemFacility)
                               <div class="flex flex-col gap-3 items-center text-center">
                                   <img src="{{ Storage::url($itemFacility->facility->thumbnail) }}" class="w-10 h-10"
                                       alt="icon">
                                   <div class="flex flex-col gap-1">
-                                      <p class="font-semibold text-sm leading-16 tracking-05">{{ $itemFacility->facility->name }}</p>
-                                      <p class="opacity-50 text-sm leading-16 tracking-05">{{ $itemFacility->facility->about }}</p>
+                                      <p class="font-semibold text-sm leading-16 tracking-05">
+                                          {{ $itemFacility->facility->name }}</p>
+                                      <p class="opacity-50 text-sm leading-16 tracking-05">
+                                          {{ $itemFacility->facility->about }}</p>
                                   </div>
                               </div>
                           @empty

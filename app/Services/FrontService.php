@@ -32,11 +32,10 @@ class FrontService
     public function getFrontPageData()
     {
         $cities = $this->cityRepository->getAllCities();
-        $popularGyms = $this->gymRepository->getPopularGyms(4);
-        $newGyms = $this->gymRepository->getAllNewGyms();
-        $allPopularGyms = $this->gymRepository->getAllPopularGyms();
+        $popularGyms = $this->gymRepository->getPopularGyms();
+        $gyms = $this->gymRepository->GetGyms();
 
-        return compact('cities', 'popularGyms', 'newGyms', 'allPopularGyms');
+        return compact('cities', 'popularGyms', 'gyms');
     }
 
     public function getSubscriptionsData()

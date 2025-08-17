@@ -8,7 +8,7 @@
     </div>
     <div class="flex items-center justify-center gap-4 flex-wrap">
         @forelse ($cities as $itemcity)
-            <a href="{{ route ('front.city', $itemcity->slug) }}" tabindex="0"
+            <a href="{{ route('front.city', $itemcity->slug) }}" tabindex="0"
                 class="rounded-full transition-all duration-200 focus:ring-custom-blue hover:ring-custom-blue">
                 <div
                     class="flex items-center rounded-full p-3 pr-6 gap-3 bg-white border-2 border-transparent hover:border-custom-blue transition-all duration-200">

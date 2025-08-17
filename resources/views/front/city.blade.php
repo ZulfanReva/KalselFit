@@ -20,7 +20,8 @@
             @php
                 // show only 6 gyms by default; if route is front.city.all show all
                 $showAll = request()->routeIs('front.city.all');
-                $gyms = $showAll ? $city->gyms : $city->gyms->take(6);
+                // sort gyms ascending by name (case-insensitive) here in the view
+                $gyms = $city->gyms->sortBy(fn($gym) => strtolower($gym->name ?? ''))->take($showAll ? null : 6);
             @endphp
 
             @forelse ($gyms as $itemCityGym)
@@ -44,11 +45,11 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <p class="font-['ClashDisplay-SemiBold']">Fasilitas</p>
-                            {{-- <button class="font-semibold text-xs leading-14 tracking-05 text-fitcamp-royal-blue">View
-                              all</button> --}}
+                            <button class="font-semibold text-xs leading-14 tracking-05 text-[#1BB1F8]">View
+                              all</button>
                         </div>
                         <div class="grid grid-cols-3 justify-between gap-3">
-                            @forelse ($itemCityGym->gymFacilities->take(6) as $itemFacility)
+                            @forelse ($itemCityGym->gymFacilities->take(3) as $itemFacility)
                                 <div class="flex flex-col gap-3 items-center text-center">
                                     <img src="{{ Storage::url($itemFacility->facility->thumbnail) }}" class="w-10 h-10"
                                         alt="icon">
@@ -76,7 +77,7 @@
                     </div>
                 </a>
             @empty
-                <p class="leading-19 tracking-03 opacity-60">Belum ada data gym populer</p>
+                <p class="leading-19 tracking-03 opacity-60">Belum ada data gym</p>
             @endforelse
 
         </div>
@@ -86,10 +87,12 @@
             <div class="flex justify-center w-full mt-6">
                 @if (!request()->routeIs('front.city.all'))
                     <a href="{{ route('front.city.all', $city->slug) }}"
-                        class="leading-19 tracking-0.5 text-white font-semibold rounded-[22px] py-3 px-6 bg-[#1BB1F8]">Lihat Semua</a>
+                        class="leading-19 tracking-0.5 text-white font-semibold rounded-[22px] py-3 px-6 bg-[#1BB1F8]">Lihat
+                        Semua</a>
                 @else
                     <a href="{{ route('front.city', $city->slug) }}"
-                        class="leading-19 tracking-0.5 text-white font-semibold rounded-[22px] py-3 px-6 bg-[#1BB1F8]">Tampilkan Sedikit</a>
+                        class="leading-19 tracking-0.5 text-white font-semibold rounded-[22px] py-3 px-6 bg-[#1BB1F8]">Tampilkan
+                        Sedikit</a>
                 @endif
             </div>
         @endif

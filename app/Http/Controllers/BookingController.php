@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 // Kelas PHP sederhana yang terlihat seperti controller atau service Laravel.
 
 use App\Http\Requests\StoreBookingRequest;
@@ -9,7 +11,7 @@ use App\Models\SubscribePackage;
 use App\Models\SubscribeTransaction;
 use App\Services\BookingService;
 
-class BookingController
+class BookingController extends Controller
 {
     // Instance layanan booking, biasanya disuntikkan melalui dependency injection.
     protected $bookingService;
@@ -112,7 +114,7 @@ class BookingController
             return view('booking.check_booking_details', compact('bookingDetails'));
         }
 
-        // Jika tidak ada detail yang ditemukan, alihkan kembali dengan kesalahan.
-        return redirect()->route('booking.check_booking')->withErrors(['error' => 'Transaksi tidak ditemukan']);
+    // Jika tidak ada detail yang ditemukan, alihkan kembali dengan kesalahan.
+    return redirect()->route('front.check_booking')->withErrors(['error' => 'Transaksi tidak ditemukan']);
     }
 }

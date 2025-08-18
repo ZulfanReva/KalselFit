@@ -38,7 +38,7 @@
                         @endforelse
 
                         <div class="flex items-center justify-between mt-auto">
-                            <a href="checkout.html"
+                            <a href="{{ route ('front.booking', $itemPackages->id) }}"
                                 class="w-fit rounded-full py-3 px-6 bg-[#1BB1F8] font-semibold leading-19 tracking-05 text-white text-center">Membership</a>
                             <p class="text-right font-semibold leading-19 tracking-05">
                                 Rp {{ number_format($itemPackages->price, 0, ',', '.') }}<span

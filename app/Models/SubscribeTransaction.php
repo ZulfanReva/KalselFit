@@ -25,6 +25,11 @@ class SubscribeTransaction extends Model
         'is_paid',
     ];
 
+    protected $casts = [
+        'started_at' => 'datetime',
+        'ended_at'   => 'datetime',
+    ];
+
     public function subscribePackage()
     {
         return $this->belongsTo(SubscribePackage::class, 'subscribe_package_id');

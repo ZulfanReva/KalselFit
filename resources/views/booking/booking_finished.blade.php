@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    KalselFit | Checkout
+    KalselFit | Booking Berhasil
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
             <p class="font-['ClashDisplay-SemiBold'] text-xl leading-[34px] tracking-05">Your Booking ID:<span
                     class="ml-2 text-[#1BB1F8]">{{ $subscribeTransaction->booking_trx_id }}</span></p>
         </div>
-        <a href="view-subs.html"
+        <a href="{{ route('front.check_booking') }}"
             class="w-fit rounded-full py-3 px-6 bg-[#1BB1F8] font-semibold leading-19 tracking-05 text-white text-center">Lihat
             My Membership</a>
     </div>

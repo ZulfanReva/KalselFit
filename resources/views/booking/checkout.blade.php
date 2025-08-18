@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('title')
-    KalselFit | Pricing
+    KalselFit | Checkout
 @endsection
 
 @section('content')
     @include('components.navigation')
 
-    <div class="flex relative flex w-full max-w-[1280px] gap-6 mx-auto px-10 aspect-[820/209]">
+    <div class="flex relative w-full max-w-[1280px] gap-6 mx-auto px-10 aspect-[820/209]">
         <img src="{{ asset('assets/images/thumbnails/banner-custom.png') }}" class="w-full h-full object-contain"
             alt="banner">
     </div>

@@ -38,7 +38,7 @@ class BookingController extends Controller
         return view('booking.checkout', compact('subscribePackage', 'totalTaxAmount', 'grandTotalAmount'));
     }
 
-    // Menangani penyimpanan booking setelah validasi.
+    // Menangani penyimpanan booking setelah validasi (untuk session saja).
     public function bookingStore(SubscribePackage $subscribePackage, StoreBookingRequest $request)
     {
         // Memvalidasi data permintaan yang masuk.
